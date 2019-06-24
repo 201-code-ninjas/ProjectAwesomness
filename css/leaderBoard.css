@@ -1,3 +1,6 @@
+/* Pixel font */
+/* @import url('https://fonts.googleapis.com/css?family=VT323&display=swap'); */
+
 * {
   box-sizing: border-box;
 }
@@ -28,7 +31,7 @@ nav a:first-child li {
 nav a {
   text-decoration: none;
   color: black;
-  font-family: sans-serif;
+  /* font-family: 'VT323', monospace; */
   font-size: 1.25em;
 }
 
@@ -65,8 +68,8 @@ main > section table {
   margin: auto;
   border-collapse: separate;
   border-spacing: 5px 15px;
-  font-size: 1.25em;
-  font-family: sans-serif;
+  font-size: 1.5em;
+  /* font-family: 'VT323', monospace; */
 }
 
 main > section table thead {
