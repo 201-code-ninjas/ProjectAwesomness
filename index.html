@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="./css/style.css" type = "text/css" rel = "stylesheet"/>
+  <title>Knowledge Crusher</title>
+</head>
+<body>
+  <h1>KNOWLEDGE CRUSHER</h1>
+  <form>
+    <section id = "difficulty">
+      <h2>Difficulty Level</h2>
+      <div>
+        <input type = "radio" id = "easy" name = "difficultyList" value = "easy">
+        <label for="easy">Easy</label>
+      </div>
+      <div>
+        <input type = "radio" id = "medium" name = "difficultyList" value = "medium" checked>
+        <label for = "medium">Medium</label>
+      </div>
+      <div>
+        <input type = "radio" id = "hard" name = "difficultyList" value = "hard">
+        <label for = "hard">Hard</label>
+      </div>
+    </section>
+    <div id = "username">
+      <label for = "usernameValue">Enter your Character Name:</label>
+      <input type = "text" id = "usernameValue">
+    </div>
+    <div id = "submit">
+      <input type = "submit" value = "Start Crushing Knowledge">
+    </div>
+  </form>
+  <script src = "./js/wordLists.js"></script>
+</body>
+</html>
