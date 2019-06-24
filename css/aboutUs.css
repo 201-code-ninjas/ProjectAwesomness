@@ -1,7 +1,12 @@
-
+header {
+  margin-bottom: 70px;
+}
 body {
   width: 900px;
-  margin: auto;
+  margin: 0 auto;
+}
+main {
+  height: 500px;
 }
 #one {
   width: 25%;
@@ -21,4 +26,7 @@ body {
 }
 .circle {
   border-radius: 100%;
+}
+.div-image {
+  margin-bottom: 50px;
 }
