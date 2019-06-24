@@ -10,6 +10,8 @@ var appendStuff = function(parent, child){
 // TODO: sort the scores so that the highest score appears first
 
 var displayScores = function(){
+  // for all user objects/saved scores
+  // loop through and add them to the table
   for (var i = 0; i < users.length; i++) {
     var trEl = document.createElement('tr');
     var nameTdEl = document.createElement('td');

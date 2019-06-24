@@ -10,20 +10,3 @@ function getFromLocalStorage(keyName){
   var obj = JSON.parse(stringyObj);
   return obj;
 }
-
-
-
-// TEST
-var example = [
-  {
-    username: 'name',
-    score: 20,
-    difficulty: 'easy',
-  },
-  {
-    username: 'name2',
-    score: 55,
-    difficulty: 'medium',
-  },
-];
-saveToLocalStorage('users', example);
