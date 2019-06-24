@@ -1,0 +1,24 @@
+
+body {
+  width: 900px;
+  margin: auto;
+}
+#one {
+  width: 25%;
+  float: left;
+}
+#two {
+  width: 25%;
+  float: left;
+}
+#three {
+  width: 25%;
+  float: left;
+}
+#four {
+  width: 25%;
+  float: left;
+}
+.circle {
+  border-radius: 100%;
+}
