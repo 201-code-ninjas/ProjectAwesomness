@@ -66,13 +66,22 @@ main > section table {
   width: 400px;
   margin: auto;
   border-collapse: separate;
-  border-spacing: 5px 15px;
+  border-spacing: 0px 10px;
   font-size: 1.5em;
   /* font-family: 'VT323', monospace; */
 }
 
 main > section table thead {
   font-size: 1.5em;
+}
+
+main section table tbody > tr {
+  background-image: url(../asset/Username-box.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 60px;
+  line-height: 60px;
 }
 
 main > section table td:first-child {
@@ -84,9 +93,9 @@ main > section table td:last-child {
 }
 
 main > section table tbody td:first-child {
-  padding-left: 10px;
+  padding-left: 25px;
 }
 
 main > section table tbody td:last-child {
-  padding-right: 15px;
+  padding-right: 25px;
 }
