@@ -14,13 +14,12 @@ header {
 
 nav a li {
   float: right;
-  line-height: 40px;
+  line-height: 51px;
   text-align: center;
-  border-radius: 20px;
-  border: 1px solid black;
-  padding: 0px 25px;
-  height: 40px;
+  height: 51px;
+  width: 114px;
   margin: 20px 10px;
+  background-image: url(../asset/nav-bar-buttons.png);
 }
 
 nav a:first-child li {
@@ -32,7 +31,7 @@ nav a {
   text-decoration: none;
   color: black;
   /* font-family: 'VT323', monospace; */
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 
