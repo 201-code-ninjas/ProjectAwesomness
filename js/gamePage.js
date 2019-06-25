@@ -1,3 +1,5 @@
+'use strict';
+
 // var circleScore = document.getElementById('scoreKeeper');
 // var ctx = circleScore.getContext('2d');
 // ctx.beginPath();
@@ -20,5 +22,5 @@ window.onload = function(){
   var ctx = canvas.getContext('2d');
 
   ctx.drawImage(groundLevelImg, 0, groundLevel);
-  ctx.drawImage(wallOfDeathGif, 0, 0);
+  ctx.drawImage(wallOfDeathGif, 0, groundLevel-300);
 };
