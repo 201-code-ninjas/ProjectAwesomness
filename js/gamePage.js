@@ -43,6 +43,8 @@ function draw(){
   ctx.drawImage(heroImage, heroXPosition, groundLevel-126);
   ctx.drawImage(wallOfWinImg, canvasWidth-33, groundLevel-247);
 
+  heroXPosition -= 0.5;
+
   window.requestAnimationFrame(draw);
 }
 
