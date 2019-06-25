@@ -5,10 +5,10 @@
 // ctx.stroke();
 
 var groundLevelImg = new Image();
-groundLevelImg = '../assets/scenery-ground.png';
+groundLevelImg.src = '../assets/scenery-ground.png';
 
-// var wallOfDeathGif = new Image();
-// wallOfDeathGif = '../assets/wallOfDeath.png';
+var wallOfDeathGif = new Image();
+wallOfDeathGif.src = '../assets/wallOfDeath.png';
 
 var canvasWidth = 960;
 var canvasHeight = 500;
@@ -20,5 +20,5 @@ window.onload = function(){
   var ctx = canvas.getContext('2d');
 
   ctx.drawImage(groundLevelImg, 0, groundLevel);
-  // ctx.drawImage(wallOfDeathGif, 0, 0);
+  ctx.drawImage(wallOfDeathGif, 0, 0);
 };
