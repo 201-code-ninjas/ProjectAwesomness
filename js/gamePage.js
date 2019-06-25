@@ -3,12 +3,22 @@
 // ctx.beginPath();
 // ctx.arc(100, 75, 50, 0, 2 * Math.PI);
 // ctx.stroke();
-// var img = new Image();
-// img.src = '../assets/scenery-ground.png';
 
-// window.onload = function(){
-//   var canvas = document.getElementById('sceneryGroundImage');
-//   var ctx = canvas.getContext('2d');
+var groundLevelImg = new Image();
+groundLevelImg = '../assets/scenery-ground.png';
 
-//   ctx.drawImage(img,105, 0);
-// };
+// var wallOfDeathGif = new Image();
+// wallOfDeathGif = '../assets/wallOfDeath.png';
+
+var canvasWidth = 960;
+var canvasHeight = 500;
+var groundLevel = canvasHeight - 174;
+// console.log(typeof groundLevelImg);
+
+window.onload = function(){
+  var canvas = document.getElementById('gamePageCanvas');
+  var ctx = canvas.getContext('2d');
+
+  ctx.drawImage(groundLevelImg, 0, groundLevel);
+  // ctx.drawImage(wallOfDeathGif, 0, 0);
+};
