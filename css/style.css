@@ -1,0 +1,50 @@
+/* ------------------------------Header-------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+/* may change with global header */
+header {
+  min-height: 80px;
+  background-color: #44A8FE;
+  overflow: hidden;
+}
+
+nav a li {
+  float: right;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 0px 25px;
+  height: 40px;
+  margin: 20px 10px;
+}
+
+nav a:first-child li {
+  float: left;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: black;
+  /* font-family: 'VT323', monospace; */
+  font-size: 1.25em;
+}
+
+/* ------------------------------Body-------------------------------- */
+
+
+body {
+  text-align: center;
+}
+
+#difficulty {
+  margin-bottom: 35px;
+}
+
+#submit {
+  margin-top: 30px;
+}
+

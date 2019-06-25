@@ -1,0 +1,93 @@
+/* Pixel font */
+/* @import url('https://fonts.googleapis.com/css?family=VT323&display=swap'); */
+
+* {
+  box-sizing: border-box;
+}
+
+/* may change with global header */
+header {
+  min-height: 80px;
+  background-color: #44A8FE;
+  overflow: hidden;
+}
+
+nav a li {
+  float: right;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 0px 25px;
+  height: 40px;
+  margin: 20px 10px;
+}
+
+nav a:first-child li {
+  float: left;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: black;
+  /* font-family: 'VT323', monospace; */
+  font-size: 1.25em;
+}
+
+
+
+/* page css */
+
+main {
+  background-color: #44A8FE;
+}
+
+main > section:first-child {
+  min-height: 450px;
+}
+
+main > section:first-child img {
+  height: 100px;
+  margin: auto;
+  padding-top: 10px;
+  display: block;
+}
+
+main > section:last-child {
+  border: 1px solid black;
+  min-height: 200px;
+}
+
+main > section > div {
+  min-height: 350px;
+}
+
+main > section table {
+  width: 400px;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 5px 15px;
+  font-size: 1.5em;
+  /* font-family: 'VT323', monospace; */
+}
+
+main > section table thead {
+  font-size: 1.5em;
+}
+
+main > section table td:first-child {
+  text-align: left;
+}
+
+main > section table td:last-child {
+  text-align: right;
+}
+
+main > section table tbody td:first-child {
+  padding-left: 10px;
+}
+
+main > section table tbody td:last-child {
+  padding-right: 15px;
+}
