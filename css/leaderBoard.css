@@ -19,7 +19,7 @@ nav a li {
   height: 51px;
   width: 114px;
   margin: 30px 10px;
-  background-image: url(../asset/nav-bar-buttons.png);
+  background-image: url("../assets/nav-bar-buttons.png");
 }
 
 nav a:first-child li {
@@ -54,7 +54,7 @@ main > section:first-child img {
 }
 
 main > section:last-child {
-  border: 1px solid black;
+  border: 0px;
   min-height: 200px;
 }
 
@@ -76,7 +76,7 @@ main > section table thead {
 }
 
 main section table tbody > tr {
-  background-image: url(../asset/Username-box.png);
+  background-image: url("../assets/Username-box.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -98,4 +98,7 @@ main > section table tbody td:first-child {
 
 main > section table tbody td:last-child {
   padding-right: 25px;
+}
+main > #footer img {
+  width: 100%;
 }
