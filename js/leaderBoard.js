@@ -1,6 +1,7 @@
 'use strict';
 
 var users = getFromLocalStorage('users');
+var currentUser = users[users.length - 1];
 var leaderBoard = document.getElementById('leader-board');
 var displayedScores = 6;
 
@@ -22,15 +23,25 @@ var bubbleSort = function(){
   } while (swapped === true);
 };
 
-// TODO: sort the scores so that the highest score appears first
-// [5, 8, 12, 3, 20, 2]
-// var temp = array[0]; 5
-// array[0] = array[1]; 5 > 8
-// array[1] = temp; 8 > 5
-// [8, 5]
-
-// TODO: show only top 5
-
+//Display current user's avatar over scoreboard
+var usersAvatar = '';
+function displayUsersAvatar () {
+  var currentAvatar = currentUser.avatar;
+  if (currentAvatar === 'renee') {
+    usersAvatar = '../assets/Renee-avatar.png';
+  } else if (currentAvatar === 'marisha') {
+    usersAvatar = '../assets/marisha.png';
+  } else if (currentAvatar === 'chris') {
+    usersAvatar = '../assets/chris-avatar.png';
+  } else if (currentAvatar === 'sapana') {
+    usersAvatar = '../assets/sapana-avatar.png';
+  } else {
+    usersAvatar = '../assets/hero.png';
+  }
+}
+displayUsersAvatar();
+var avatarImage = document.getElementById ('avatarDisplayed');
+avatarImage.src = usersAvatar;
 
 var displayScores = function(){
   bubbleSort();
