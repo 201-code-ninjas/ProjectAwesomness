@@ -28,21 +28,48 @@
   </header>
   <h1>KNOWLEDGE CRUSHER</h1>
   <form>
-    <section id="difficulty">
-      <h2>Difficulty Level</h2>
-      <div>
-        <input type="radio" id="easy" name="difficultyList" value="easy">
-        <label for="easy">Easy</label>
-      </div>
-      <div>
-        <input type="radio" id="medium" name="difficultyList" value="medium" checked>
-        <label for="medium">Medium</label>
-      </div>
-      <div>
-        <input type="radio" id="hard" name="difficultyList" value="hard">
-        <label for="hard">Hard</label>
-      </div>
-    </section>
+    <div id = "userSelectionOptions">
+      <section id="difficulty">
+        <h2 class = "catagorySelector">Difficulty Level</h2>
+        <div class = "catagorySelector">
+          <input type="radio" id="easy" name="difficultyList" value="easy">
+          <label for="easy">Easy</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="medium" name="difficultyList" value="medium" checked>
+          <label for="medium">Medium</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="hard" name="difficultyList" value="hard">
+          <label for="hard">Hard</label>
+        </div>
+      </section>
+      <section id = "avatarSelection">
+        <h2 class = "catagorySelector">Select Avatar</h2>
+        <div class = "catagorySelector">
+          <input type="radio" id="Renee" name="avatar" value="renee">
+          <label for="Renee">Renee</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="marisha" name="avatar" value="marisha">
+          <label for="marisha">Marisha</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="chris" name="avatar" value="chris">
+          <label for="chris">Chris</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="sapana" name="avatar" value="sapana">
+          <label for="sapana">Sapana</label>
+        </div>
+      </section>
+      <section id = "avatarImages">
+        <img src = "./assets/Renee-avatar.png" alt = "renees avatar"/>
+        <img src = "./assets/marisha.png" alt = "marishas avatar"/>
+        <img src = "./assets/chris-avatar.png" alt = "chris avatar"/>
+        <img src = "./assets/sapana-avatar.png" alt = "sapanas avatar"/>
+      </section>
+    </div>
     <div id="username">
       <label for="usernameValue">Enter your Character Name:</label>
       <input type="text" id="usernameValue">
@@ -51,6 +78,7 @@
       <input type="submit" value="Start Crushing Knowledge">
     </div>
   </form>
+  <canvas id = "mainMenuCanvas" width = "960px" height = "500px" style = "border:1px solid"></canvas>
   <footer>
     <img src="./assets/scenery-ground.png">
   </footer>
