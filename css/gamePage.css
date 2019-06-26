@@ -1,19 +1,24 @@
-/* body{
-  max-width: 960px;
-  max-height: 600px;
+body{
+  width: 100%;
+  height: 100%;
   margin: auto;
+  position: absolute;
 }
 
-#wallOfDeath{
-  border: 5px solid purple;
-  display: inline;
+#gamePageCanvas {
+  width: 100%;
+  height: 100%;
 }
 
-#spriteStyle{
-  border: 5px solid purple;
-  display: inline;
+#gamePageForm {
+  margin: auto;
+  width: 300px;
+  text-align: center;
+  z-index: 10;
+  position: relative;
+  top: 50px;
+  height: 0px;
 }
 
-} */
 
 

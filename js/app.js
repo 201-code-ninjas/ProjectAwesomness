@@ -1,6 +1,10 @@
 'use strict';
 //-----------------------------------global variables----------------------------
-var userObjects = [];
+if (getFromLocalStorage ('users')) {
+  var userObjects = getFromLocalStorage ('users');
+} else {
+  userObjects = [];
+}
 
 //---------------------------------------functions-------------------------------
 
@@ -16,6 +20,7 @@ function handleSubmit () {
   var difficulty = difficultySelector();
   new UserObject (username, difficulty);
   saveToLocalStorage('users', userObjects);
+  window.location.href = './pages/gamePage.html';
 }
 
 //This function will identify which difficulty level was selected by the user.  Source: https://stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value

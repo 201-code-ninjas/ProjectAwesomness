@@ -1,5 +1,5 @@
 /* Pixel font */
-/* @import url('https://fonts.googleapis.com/css?family=VT323&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,20 +7,20 @@
 
 /* may change with global header */
 header {
-  min-height: 80px;
+  min-height: 100px;
   background-color: #44A8FE;
   overflow: hidden;
 }
 
 nav a li {
   float: right;
-  line-height: 40px;
+  line-height: 51px;
   text-align: center;
-  border-radius: 20px;
-  border: 1px solid black;
-  padding: 0px 25px;
-  height: 40px;
-  margin: 20px 10px;
+  height: 51px;
+  width: 114px;
+  margin: 30px 10px;
+  color: white;
+  background-image: url("../assets/nav-bar-buttons.png");
 }
 
 nav a:first-child li {
@@ -31,8 +31,8 @@ nav a:first-child li {
 nav a {
   text-decoration: none;
   color: black;
-  /* font-family: 'VT323', monospace; */
-  font-size: 1.25em;
+  font-family: 'VT323', monospace;
+  font-size: 1.2em;
 }
 
 
@@ -55,7 +55,7 @@ main > section:first-child img {
 }
 
 main > section:last-child {
-  border: 1px solid black;
+  border: 0px;
   min-height: 200px;
 }
 
@@ -67,13 +67,23 @@ main > section table {
   width: 400px;
   margin: auto;
   border-collapse: separate;
-  border-spacing: 5px 15px;
+  border-spacing: 0px 10px;
   font-size: 1.5em;
-  /* font-family: 'VT323', monospace; */
+  color: white;
+  font-family: 'VT323', monospace;––
 }
 
 main > section table thead {
   font-size: 1.5em;
+}
+
+main section table tbody > tr {
+  background-image: url("../assets/Username-box.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 60px;
+  line-height: 60px;
 }
 
 main > section table td:first-child {
@@ -85,9 +95,12 @@ main > section table td:last-child {
 }
 
 main > section table tbody td:first-child {
-  padding-left: 10px;
+  padding-left: 25px;
 }
 
 main > section table tbody td:last-child {
-  padding-right: 15px;
+  padding-right: 25px;
+}
+main > #footer img {
+  width: 100%;
 }
