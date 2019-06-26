@@ -11,7 +11,6 @@ var canvas = document.getElementById('gamePageCanvas');
 var ctx = canvas.getContext('2d');
 var users = getFromLocalStorage('users');
 var currentUser = users[users.length - 1];
-console.log('This is the current user: ', currentUser);
 
 var groundLevelImg = new Image();
 var wallOfDeathGif = new Image();
@@ -58,6 +57,21 @@ function showWordType() {
 
 }
 
+//Generate user avatar from local storage
+function avatarSelection () {
+  var currentAvatar = currentUser.avatar;
+  if (currentAvatar === 'renee') {
+    return '../assets/Renee-avatar.png';
+  } else if (currentAvatar === 'marisha') {
+    return '../assets/marisha.png';
+  } else if (currentAvatar === 'chris') {
+    return '../assets/chris-avatar.png';
+  } else if (currentAvatar === 'sapana') {
+    return '../assets/sapana-avatar.png';
+  } else {
+    return '../assets/hero.png';
+  }
+}
 
 showWordType();
 
@@ -82,7 +96,6 @@ function moveHeroBackward() {
   heroXPosition -= 50;
 
 }
-//TODO: create multipier for score at the end of lavel
 //function to check it the words match 
 function checkUserAnswer() {
   var answer = document.getElementById('userEntry').value;
@@ -101,7 +114,7 @@ function init() {
 
   groundLevelImg.src = '../assets/scenery-ground.png';
   wallOfDeathGif.src = '../assets/wallOfDeath.png';
-  heroImage.src = '../assets/hero.png';
+  heroImage.src = avatarSelection();
   wallOfWinImg.src = '../assets/wallOfWin.png';
 
   window.requestAnimationFrame(draw);
@@ -122,7 +135,7 @@ function draw() {
   }
 
   ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
-  ctx.drawImage(heroImage, heroXPosition, groundLevel - 120);
+  ctx.drawImage(heroImage, heroXPosition, groundLevel - 225);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
 
   ctx.fillStyle = '#ff0000';
