@@ -10,6 +10,14 @@ var groundLevelImg = new Image();
 var wallOfDeathGif = new Image();
 var heroImage = new Image();
 var wallOfWinImg = new Image();
+var cloud1 = new Image();
+var cloud2 = new Image();
+var cloud3 = new Image();
+var cloud4 = new Image();
+var cloud5 = new Image();
+var lightning = new Image();
+var volcano1 = new Image();
+var volcano2 = new Image();
 
 var canvasWidth = 960;
 var canvasHeight = 500;
@@ -18,6 +26,8 @@ var heroXPosition = canvasWidth / 2;
 var groundXPosition = 0;
 var numberOfGround = 1;
 var groundEndXPosition = canvasWidth;
+var lightningTimer = 0;
+var lightningPosition = 0;
 
 var bonusGoal = [[5, 500], [10, 250], [20, 100]];
 var wordsTyped = 0;
@@ -102,32 +112,91 @@ function init() {
   wallOfDeathGif.src = '../assets/wallOfDeath.png';
   heroImage.src = '../assets/hero.png';
   wallOfWinImg.src = '../assets/wallOfWin.png';
+  cloud1.src = '../assets/cloud1.png';
+  cloud2.src = '../assets/cloud2.png';
+  cloud3.src = '../assets/cloud3.png';
+  cloud4.src = '../assets/cloud4.png';
+  cloud5.src = '../assets/cloud5.png';
+  lightning.src = '../assets/lightning.png';
+  volcano1.src = '../assets/volcano1.png';
+  volcano2.src = '../assets/volcano2.png';
 
   window.requestAnimationFrame(draw);
 }
 
 function draw() {
-  ctx.fillStyle = '#44a8fe';
-  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
+  // if level is easy
+  if (currentUser.difficulty === 'easy'){
+    // draw the blue sky
+    var grd = ctx.createLinearGradient(0, 0, 0, groundLevel);
+    grd.addColorStop(0,'#44a8fe');
+    grd.addColorStop(1,'#73beff');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  
+    // clouds in the sky
+    ctx.drawImage(cloud1, canvasWidth/4, groundLevel/10);
+    ctx.drawImage(cloud2, canvasWidth/8, groundLevel/3.5);
+    ctx.drawImage(cloud3, canvasWidth/1.2, groundLevel/4);
+    ctx.drawImage(cloud3, canvasWidth/20, 0);
+    ctx.drawImage(cloud4, canvasWidth/1.5, groundLevel/50);
+    ctx.drawImage(cloud5, canvasWidth/2, groundLevel/2.5);
+
+    // if level is medium
+  } else if (currentUser.difficulty === 'medium') {
+    // draw the sunset sky
+    grd = ctx.createLinearGradient(0, 0, 0, groundLevel);
+    grd.addColorStop(0,'#a232a6');
+    grd.addColorStop(0.5,'#d65c89');
+    grd.addColorStop(1,'#e3825b');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+  } else if (currentUser.difficulty === 'hard'){
+    // draw the volcano storm background
+    grd = ctx.createLinearGradient(0, 0, 0, groundLevel);
+    grd.addColorStop(0,'#201d57');
+    grd.addColorStop(1,'#3d0b03');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
+    // volcanos
+    ctx.drawImage(volcano1, canvasWidth/12, groundLevel-250, 300, 300);
+    ctx.drawImage(volcano2, canvasWidth/4, groundLevel-230, 300, 300);
+    ctx.drawImage(volcano1, canvasWidth/1.75, groundLevel-300, 350, 350);
+
+    // lightning
+    lightningTimer ++;
+    if (lightningTimer === 100){
+      lightningPosition = Math.random() * (canvasWidth - 200) + 100;
+    }
+    if (lightningTimer > 100 && lightningTimer < 120){
+      ctx.drawImage(lightning, lightningPosition, -50, 60, 425);
+    } else if (lightningTimer > 120){
+      lightningTimer = 0;
+    }
+  }
+
+  // draw the grassy ground
   ctx.drawImage(groundLevelImg, groundXPosition, groundLevel);
-
   if (groundEndXPosition < (canvasWidth + 5)) {
     numberOfGround++;
-    groundEndXPosition = canvasWidth * numberOfGround;
+    groundEndXPosition += canvasWidth;
   }
   for (var i = numberOfGround; i > 1; i--) {
     ctx.drawImage(groundLevelImg, groundXPosition + (canvasWidth * (i-1)), groundLevel);
   }
 
+  // draw the wall, hero, and win wall
   ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
   ctx.drawImage(heroImage, heroXPosition, groundLevel - 120);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
 
+  // draw the score box and text
   ctx.fillStyle = '#ff0000';
   ctx.fillRect(canvasWidth - 100, 10, 90, 60);
   ctx.clearRect(canvasWidth - 98, 12, 86, 56);
-
   ctx.fillStyle = '#000000';
   ctx.font = '30px Arial';
   ctx.fillText('score', canvasWidth - 92, 30);
