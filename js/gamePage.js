@@ -1,17 +1,10 @@
 /* eslint-disable no-undef */
 'use strict';
 
-// var circleScore = document.getElementById('scoreKeeper');
-// var ctx = circleScore.getContext('2d');
-// ctx.beginPath();
-// ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-// ctx.stroke();
-
 var canvas = document.getElementById('gamePageCanvas');
 var ctx = canvas.getContext('2d');
 var users = getFromLocalStorage('users');
 var currentUser = users[users.length - 1];
-console.log('This is the current user: ', currentUser);
 
 var groundLevelImg = new Image();
 var wallOfDeathGif = new Image();
@@ -28,16 +21,15 @@ var groundEndXPosition = canvasWidth;
 
 var bonusGoal = [[5, 500], [10, 250], [20, 100]];
 var wordsTyped = 0;
+
 //bonus score
 function scoreMultiplier() {
   for (var i = 0; i < bonusGoal.length; i++) {
     if (wordsTyped <= bonusGoal[i][0]) {
       currentUser.score += bonusGoal[i][1];
-
       break;
     }
   }
-
 }
 
 //Generating word in the game page
@@ -55,38 +47,47 @@ function showWordType() {
     var hardWord = pickFromHardWordList();
     challangeWord.textContent = hardWord;
   }
-
 }
-
 
 showWordType();
 
 //Eventlistner for text form
 // var userInput = document.getElementById('gamePageForm');
 function handleUserSubmission(event) {
-
   event.preventDefault();
   wordsTyped++;
   checkUserAnswer();
   showWordType();
 }
+
+function handleKeyPress(event){
+  var typedAnswer = document.getElementById('userEntry').value;
+  var displayedWord = document.getElementById('wordToType').textContent;
+
+  if (typedAnswer.length > displayedWord.length){
+    wordsTyped++;
+    checkUserAnswer();
+    showWordType();
+  }
+}
+
 document.addEventListener('submit', handleUserSubmission);
+document.addEventListener('keyup', handleKeyPress);
 
 //move hero forward
 function moveHeroForward() {
   heroXPosition += 100;
-
 }
+
 //move hero backward
 function moveHeroBackward() {
   heroXPosition -= 50;
-
 }
+
 //TODO: create multipier for score at the end of lavel
 //function to check it the words match 
 function checkUserAnswer() {
-  var answer = document.getElementById('userEntry').value;
-  console.log(document.getElementById('wordToType').textContent);
+  var answer = document.getElementById('userEntry').value.trim();
   if (answer === document.getElementById('wordToType').textContent) {
     moveHeroForward();
     currentUser.score += 5;
@@ -96,9 +97,7 @@ function checkUserAnswer() {
   document.getElementById('gamePageForm').reset();
 }
 
-
 function init() {
-
   groundLevelImg.src = '../assets/scenery-ground.png';
   wallOfDeathGif.src = '../assets/wallOfDeath.png';
   heroImage.src = '../assets/hero.png';
@@ -134,10 +133,11 @@ function draw() {
   ctx.fillText('score', canvasWidth - 92, 30);
   ctx.fillText(currentUser.score, canvasWidth - 80, 60);
 
-
+  // move hero and ground backwards at the same speed
   heroXPosition -= .5;
   groundXPosition -= .5;
   groundEndXPosition -= .5;
+
   //if the character dies
   if (heroXPosition <= 15) {
     // save to local storage
@@ -147,7 +147,7 @@ function draw() {
     window.location.href = '../pages/leaderBoard.html';
     return;
 
-    //if the character wins 
+    //if the character wins
   } else if (heroXPosition >= canvasWidth - 100) {
     // advance to next level
     // save to local storage
@@ -168,14 +168,9 @@ function draw() {
       saveToLocalStorage('users', users);
       window.location.href = '../pages/leaderBoard.html';
     }
-
     return;
   }
-
   window.requestAnimationFrame(draw);
 }
 
 init();
-
-
-
