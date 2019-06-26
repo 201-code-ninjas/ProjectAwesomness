@@ -11,7 +11,6 @@ var canvas = document.getElementById('gamePageCanvas');
 var ctx = canvas.getContext('2d');
 var users = getFromLocalStorage('users');
 var currentUser = users[users.length - 1];
-console.log('This is the current user: ', currentUser);
 
 var groundLevelImg = new Image();
 var wallOfDeathGif = new Image();
@@ -55,9 +54,7 @@ function showWordType() {
     var hardWord = pickFromHardWordList();
     challangeWord.textContent = hardWord;
   }
-
 }
-
 
 showWordType();
 
@@ -69,6 +66,7 @@ function handleUserSubmission(event) {
   wordsTyped++;
   checkUserAnswer();
   showWordType();
+  startMusic();
 }
 document.addEventListener('submit', handleUserSubmission);
 
