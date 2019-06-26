@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,33 @@
 
   <link rel="stylesheet" href="../css/gamePage.css">
 </head>
+
 <body>
   <header>
     <nav>
       <ul>
         <li><a href="/index.html">Home</a> </li>
         <li><a href="/aboutUs.html">About Us</a></li>
-        <li><a href="/leaderboard.html">Leaderboard</a></li>
+        <li><a href="/leaderboard.html">Leade rboard</a></li>
       </ul>
 
     </nav>
   </header>
-<main>
-<canvas id="gamePageCanvas" width="960" height="500" style="border: 1px solid"></canvas>
-</main>
+  <main>
 
+    <form id="gamePageForm" autocomplete="off">
+      <input type="text" id="userEntry" autofocus>
+      <h1 id="wordToType">Hello World</h1>
+    </form>
 
-<script src="../js/gamePage.js"></script>
+    <canvas id="gamePageCanvas" width="960px" height="500px" style="border: 1px solid"></canvas>
+
+  </main>
+
+  <script src="../js/localStorage.js"></script>
+  <script src="../js/wordLists.js"></script>
+  <script src="../js/randomWord.js"></script>
+  <script src="../js/gamePage.js"></script>
 </body>
+
 </html>
