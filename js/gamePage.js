@@ -23,6 +23,19 @@ var canvasHeight = 500;
 var groundLevel = canvasHeight - 174;
 var heroXPosition = canvasWidth / 2;
 
+var bonusGoal = [[5, 500], [10, 250], [20, 100]];
+var wordsTyped= 0;
+//bonus score
+function scoreMultiplier() {
+  for(var i =0; i<bonusGoal.length; i++){
+    if(wordsTyped <= bonusGoal[i][0]){
+      currentUser.score += bonusGoal[i][1];
+
+      break;
+    }
+  }
+
+}
 
 //Generating word in the game page
 function showWordType() {
@@ -42,6 +55,7 @@ function showWordType() {
 
 }
 
+
 showWordType();
 
 //Eventlistner for text form
@@ -49,6 +63,7 @@ showWordType();
 function handleUserSubmission(event){
 
   event.preventDefault();
+  wordsTyped++;
   checkUserAnswer();
   showWordType();
 }
@@ -109,6 +124,7 @@ function draw() {
 
 
   heroXPosition -= .5;
+  //if the character dies
   if (heroXPosition <= 15) {
     // save to local storage
     // redirect to leaderboard
@@ -116,10 +132,14 @@ function draw() {
     saveToLocalStorage('users', users);
     window.location.href = '../pages/leaderBoard.html';
     return;
+
+    //if the character wins 
   } else if (heroXPosition >= canvasWidth - 100) {
     // advance to next level
     // save to local storage
     // if finished hard, redirect to leaderboard
+    //get the bonus score
+    scoreMultiplier();
     alert('You\'re awesome, Try again');
 
     if (currentUser.difficulty === 'easy'){
