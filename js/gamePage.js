@@ -89,7 +89,7 @@ function handleUserSubmission(event) {
   showWordType();
 }
 
-function handleKeyPress(event){
+function handleKeyPress(){
   var typedAnswer = document.getElementById('userEntry').value;
   var displayedWord = document.getElementById('wordToType').textContent;
 
