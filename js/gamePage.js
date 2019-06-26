@@ -96,6 +96,7 @@ function handleKeyPress(event){
   if (typedAnswer.length > displayedWord.length){
     wordsTyped++;
     checkUserAnswer();
+    startMusic();
     showWordType();
   }
 }
