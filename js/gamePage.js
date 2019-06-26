@@ -209,7 +209,7 @@ function draw() {
 
   // draw the wall, hero, and win wall
   ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
-  ctx.drawImage(heroImage, heroXPosition, groundLevel - 225);
+  ctx.drawImage(heroImage, heroXPosition, groundLevel - 110, 130, 130);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
 
   // draw the score box and text
@@ -218,8 +218,9 @@ function draw() {
   ctx.clearRect(canvasWidth - 98, 12, 86, 56);
   ctx.fillStyle = '#000000';
   ctx.font = '30px Arial';
-  ctx.fillText('score', canvasWidth - 92, 30);
-  ctx.fillText(currentUser.score, canvasWidth - 80, 60);
+  ctx.textAlign = 'center';
+  ctx.fillText('score', canvasWidth - 55, 30);
+  ctx.fillText(currentUser.score, canvasWidth - 55, 60);
 
   // move hero and ground backwards at the same speed
   heroXPosition -= .5;
