@@ -51,6 +51,10 @@ main {
   width: 25%;
   float: left;
 }
+#three > p > span {
+  font-style: italic;
+}
+
 #four {
   width: 25%;
   float: left;
