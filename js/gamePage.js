@@ -93,7 +93,7 @@ function handleKeyPress(event){
   var typedAnswer = document.getElementById('userEntry').value;
   var displayedWord = document.getElementById('wordToType').textContent;
 
-  if (typedAnswer.length > displayedWord.length){
+  if (typedAnswer.length >= displayedWord.length){
     wordsTyped++;
     checkUserAnswer();
     startMusic();
