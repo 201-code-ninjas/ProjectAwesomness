@@ -22,13 +22,16 @@ var canvasWidth = 960;
 var canvasHeight = 500;
 var groundLevel = canvasHeight - 174;
 var heroXPosition = canvasWidth / 2;
+var groundXPosition = 0;
+var numberOfGround = 1;
+var groundEndXPosition = canvasWidth;
 
 var bonusGoal = [[5, 500], [10, 250], [20, 100]];
-var wordsTyped= 0;
+var wordsTyped = 0;
 //bonus score
 function scoreMultiplier() {
-  for(var i =0; i<bonusGoal.length; i++){
-    if(wordsTyped <= bonusGoal[i][0]){
+  for (var i = 0; i < bonusGoal.length; i++) {
+    if (wordsTyped <= bonusGoal[i][0]) {
       currentUser.score += bonusGoal[i][1];
 
       break;
@@ -60,7 +63,7 @@ showWordType();
 
 //Eventlistner for text form
 // var userInput = document.getElementById('gamePageForm');
-function handleUserSubmission(event){
+function handleUserSubmission(event) {
 
   event.preventDefault();
   wordsTyped++;
@@ -84,7 +87,7 @@ function moveHeroBackward() {
 function checkUserAnswer() {
   var answer = document.getElementById('userEntry').value;
   console.log(document.getElementById('wordToType').textContent);
-  if (answer === document.getElementById('wordToType').textContent){
+  if (answer === document.getElementById('wordToType').textContent) {
     moveHeroForward();
     currentUser.score += 5;
   } else {
@@ -108,7 +111,16 @@ function draw() {
   ctx.fillStyle = '#44a8fe';
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-  ctx.drawImage(groundLevelImg, 0, groundLevel);
+  ctx.drawImage(groundLevelImg, groundXPosition, groundLevel);
+
+  if (groundEndXPosition < (canvasWidth + 5)) {
+    numberOfGround++;
+    groundEndXPosition = canvasWidth * numberOfGround;
+  }
+  for (var i = numberOfGround; i > 1; i--) {
+    ctx.drawImage(groundLevelImg, groundXPosition + (canvasWidth * (i-1)), groundLevel);
+  }
+
   ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
   ctx.drawImage(heroImage, heroXPosition, groundLevel - 126);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
@@ -119,11 +131,13 @@ function draw() {
 
   ctx.fillStyle = '#000000';
   ctx.font = '30px Arial';
-  ctx.fillText('score', canvasWidth-92, 30);
-  ctx.fillText(currentUser.score, canvasWidth-80, 60);
+  ctx.fillText('score', canvasWidth - 92, 30);
+  ctx.fillText(currentUser.score, canvasWidth - 80, 60);
 
 
   heroXPosition -= .5;
+  groundXPosition -= .5;
+  groundEndXPosition -= .5;
   //if the character dies
   if (heroXPosition <= 15) {
     // save to local storage
@@ -142,15 +156,15 @@ function draw() {
     scoreMultiplier();
     alert('You\'re awesome, Try again');
 
-    if (currentUser.difficulty === 'easy'){
+    if (currentUser.difficulty === 'easy') {
       currentUser.difficulty = 'medium';
       saveToLocalStorage('users', users);
       window.location.reload();
-    } else if (currentUser.difficulty === 'medium'){
+    } else if (currentUser.difficulty === 'medium') {
       currentUser.difficulty = 'hard';
       saveToLocalStorage('users', users);
       window.location.reload();
-    } else if (currentUser.difficulty === 'hard'){
+    } else if (currentUser.difficulty === 'hard') {
       saveToLocalStorage('users', users);
       window.location.href = '../pages/leaderBoard.html';
     }
