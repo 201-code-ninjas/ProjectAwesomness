@@ -59,6 +59,24 @@ function showWordType() {
   }
 }
 
+
+//Generate user avatar from local storage
+function avatarSelection () {
+  var currentAvatar = currentUser.avatar;
+  if (currentAvatar === 'renee') {
+    return '../assets/Renee-avatar.png';
+  } else if (currentAvatar === 'marisha') {
+    return '../assets/marisha.png';
+  } else if (currentAvatar === 'chris') {
+    return '../assets/chris-avatar.png';
+  } else if (currentAvatar === 'sapana') {
+    return '../assets/sapana-avatar.png';
+  } else {
+    return '../assets/hero.png';
+  }
+}
+
+
 showWordType();
 
 //Eventlistner for text form
@@ -94,7 +112,6 @@ function moveHeroBackward() {
   heroXPosition -= 50;
 }
 
-//TODO: create multipier for score at the end of lavel
 //function to check it the words match 
 function checkUserAnswer() {
   var answer = document.getElementById('userEntry').value.trim();
@@ -110,7 +127,7 @@ function checkUserAnswer() {
 function init() {
   groundLevelImg.src = '../assets/scenery-ground.png';
   wallOfDeathGif.src = '../assets/wallOfDeath.png';
-  heroImage.src = '../assets/hero.png';
+  heroImage.src = avatarSelection();
   wallOfWinImg.src = '../assets/wallOfWin.png';
   cloud1.src = '../assets/cloud1.png';
   cloud2.src = '../assets/cloud2.png';
@@ -190,7 +207,7 @@ function draw() {
 
   // draw the wall, hero, and win wall
   ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
-  ctx.drawImage(heroImage, heroXPosition, groundLevel - 120);
+  ctx.drawImage(heroImage, heroXPosition, groundLevel - 225);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
 
   // draw the score box and text

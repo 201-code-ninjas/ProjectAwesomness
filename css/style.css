@@ -74,26 +74,45 @@ form {
 #difficulty {
   text-align: center;
   float: left;
-  margin-left: 3%;
-  width: 300px;
+  margin-left: 6%;
+  width: 234px;
   margin-right: 10px;
   height: 25px;
 }
 
 #difficulty > div {
   margin-bottom: 13px;
+  margin-right: 15px;
 }
 
 #difficulty > div:hover, #avatarSelection > div:hover {
-  background-image: url("../assets/Username-box.png");
+  background-image: url("../assets/SelectedBoxDarker.png");
   color: grey;
+}
+
+#userSelectionOptions input {
+  display: none;
+}
+
+#userSelectionOptions input:checked + label {
+  background-image: url("../assets/SelectedBoxDarker.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  height: 33px;
+  color: grey;
+}
+
+#userSelectionOptions > section > div > label {
+  width: 225px;
+  display:block;
 }
 
 #avatarSelection {
   text-align: center;
   float: left;
   width: 225px;
-  margin-left: 16%;
+  margin-left: 31%;
 }
 
 #avatarSelection > div {
@@ -105,7 +124,6 @@ form {
   background-image: url("../assets/Username-box.png");
   background-repeat: no-repeat;
   background-size: auto;
-  background-position: center;
 }
 
 #avatarImages {
