@@ -217,7 +217,7 @@ function draw() {
   ctx.fillRect(canvasWidth - 100, 10, 90, 60);
   ctx.clearRect(canvasWidth - 98, 12, 86, 56);
   ctx.fillStyle = '#000000';
-  ctx.font = '30px Arial';
+  ctx.font = '30px VT323';
   ctx.textAlign = 'center';
   ctx.fillText('score', canvasWidth - 55, 30);
   ctx.fillText(currentUser.score, canvasWidth - 55, 60);
