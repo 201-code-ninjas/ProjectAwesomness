@@ -122,7 +122,7 @@ function draw() {
   }
 
   ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
-  ctx.drawImage(heroImage, heroXPosition, groundLevel - 126);
+  ctx.drawImage(heroImage, heroXPosition, groundLevel - 120);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
 
   ctx.fillStyle = '#ff0000';
