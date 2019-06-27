@@ -7,29 +7,17 @@ function getRandomWord(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//function to randomly pickup word from easy word list 
-var pickFromEasyWordList = function () {
-  var index, easyWord;
-  index = getRandomWord(0, easyWordList.length-1);
-  easyWord = easyWordList[index];
-  return easyWord;
-};
-
-//function to randomly pickup word from medium word list 
-var pickFromMediumWordList = function(){
-  var index, mediumWord;
-  index = getRandomWord(0, mediumWordList.length-1);
-  mediumWord = mediumWordList[index];
-  return mediumWord;
-};
-
-//function to randomly pickup word from hard word list
-var pickFromHardWordList = function() {
-  var index, hardWord;
-  index = getRandomWord(0, hardWordList.length-1);
-  hardWord = hardWordList[index];
-  return hardWord;
-};
-
+//Pick up random words from word array
+function pickWord(word) {
+  if (word === 'easy') {
+    return easyWordList[getRandomWord(0, easyWordList.length - 1)];
+  }
+  if (word === 'medium') {
+    return mediumWordList[getRandomWord(0, mediumWordList.length - 1)] ;
+  }
+  if (word === 'hard') {
+    return hardWordList[getRandomWord(0, hardWordList.length - 1)];
+  }
+}
 
 

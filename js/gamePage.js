@@ -49,19 +49,18 @@ function scoreMultiplier() {
 function showWordType() {
   var challangeWord = document.getElementById('wordToType');
   if (currentUser.difficulty === 'easy') {
-    var easyWord = pickFromEasyWordList();
+    var easyWord = pickWord('easy');
     challangeWord.textContent = easyWord;
   }
   if (currentUser.difficulty === 'medium') {
-    var mediumWord = pickFromMediumWordList();
+    var mediumWord = pickWord('medium');
     challangeWord.textContent = mediumWord;
   }
   if (currentUser.difficulty === 'hard') {
-    var hardWord = pickFromHardWordList();
+    var hardWord = pickWord('hard');
     challangeWord.textContent = hardWord;
   }
 }
-
 
 //Generate user avatar from local storage
 function avatarSelection () {
@@ -81,30 +80,28 @@ function avatarSelection () {
 
 
 showWordType();
+startMusic();
 
-//Eventlistner for text form
-// var userInput = document.getElementById('gamePageForm');
-function handleUserSubmission(event) {
-  event.preventDefault();
-  wordsTyped++;
-  checkUserAnswer();
-  startMusic();
-  showWordType();
-}
+
 
 function handleKeyPress(){
   var typedAnswer = document.getElementById('userEntry').value;
   var displayedWord = document.getElementById('wordToType').textContent;
 
+  // answer can be greater than or equal to the word they're trying to type
+  // because if you type very quickly, you can skip the event
   if (typedAnswer.length >= displayedWord.length){
     wordsTyped++;
     checkUserAnswer();
-    startMusic();
     showWordType();
   }
 }
 
-document.addEventListener('submit', handleUserSubmission);
+document.addEventListener ('submit', preventDefaultOnEnter);
+function preventDefaultOnEnter () {
+  event.preventDefault();
+}
+
 document.addEventListener('keyup', handleKeyPress);
 
 //move hero forward
@@ -122,7 +119,13 @@ function checkUserAnswer() {
   var answer = document.getElementById('userEntry').value.trim();
   if (answer === document.getElementById('wordToType').textContent) {
     moveHeroForward();
-    currentUser.score += 5;
+    if (currentUser.difficulty === 'easy') {
+      currentUser.score += 5;
+    } else if (currentUser.difficulty === 'medium') {
+      currentUser.score += 10;
+    } else if (currentUser.difficulty === 'hard') {
+      currentUser.score += 15;
+    }
   } else {
     moveHeroBackward();
   }
@@ -212,6 +215,7 @@ function draw() {
 
   // draw the wall, hero, and win wall
   tickCounter++;
+  //lower number is faster, higher number slower
   if (tickCounter === 15 && wallFrames < 4){
     wallCropX += 100;
     wallFrames++;
@@ -222,8 +226,9 @@ function draw() {
     wallFrames = 0;
     tickCounter = 0;
   }
+
+  //(image to draw, crop starting x-position, crop starting y-position, crop-width, crop-height, x-position of where to place it, y-position of where to place it, actual width to display, actual height to display)
   ctx.drawImage(wallImage, wallCropX, 0, 100, 300, 0, groundLevel - 300, 100, 300 );
-  
 
 
   ctx.drawImage(heroImage, heroXPosition, groundLevel - 110, 130, 130);
@@ -258,20 +263,24 @@ function draw() {
   if (heroXPosition <= 15) {
     // save to local storage
     // redirect to leaderboard
-    alert('You Suck, Try again');
+    alert('Congratulations, you met the WALL OF DOOM.  You are now dead.');
     saveToLocalStorage('users', users);
     window.location.href = '../pages/leaderBoard.html';
     return;
 
     //if the character wins
   } else if (heroXPosition >= canvasWidth - 100) {
+    if (currentUser.difficulty === 'easy' || currentUser.difficulty === 'medium') {
+      scoreMultiplier();
+      alert('Onward to glory!!!');
+    } else{
+      scoreMultiplier();
+      alert('You have made it to the gates of Valhalla, where all is shiney and chrome');
+    }
     // advance to next level
     // save to local storage
     // if finished hard, redirect to leaderboard
     //get the bonus score
-    scoreMultiplier();
-    alert('You\'re awesome, Try again');
-
     if (currentUser.difficulty === 'easy') {
       currentUser.difficulty = 'medium';
       saveToLocalStorage('users', users);

@@ -28,16 +28,17 @@
   </header>
   <h1>WORD CRUSHER</h1>
   <form>
-    <section id = "catagorySelectorHeader">
-      <div id = "difficultyHeader">
-        <h2>Difficulty Level</h2>
-      </div>
-      <div id = "avatarHeader">
-        <h2>Select Avatar</h2>
-      </div>
-    </section>
+
+    <!-- holds entire choice selection -->
     <div id = "userSelectionOptions">
+
+      <!-- holds entire difficulty side -->
       <section id="difficulty">
+
+        <div class = "sectionHeader">
+          <h2>Difficulty Level</h2>
+        </div>
+
         <div class = "catagorySelector">
           <input type="radio" id="easy" name="difficultyList" value="easy">
           <label for="easy">Easy</label>
@@ -51,37 +52,58 @@
           <label for="hard">Hard</label>
         </div>
       </section>
+
+      <!-- holds avatar buttons -->
       <section id = "avatarSelection">
-        <div class = "catagorySelector">
-          <input type="radio" id="Renee" name="avatar" value="renee" checked>
-          <label for="Renee">Renee</label>
+
+        <div class = "sectionHeader">
+          <h2>Select Avatar</h2>
         </div>
-        <div class = "catagorySelector">
-          <input type="radio" id="marisha" name="avatar" value="marisha">
-          <label for="marisha">Marisha</label>
+
+        <div class = "catagorySelectorHolder">
+          <img src = "./assets/Renee-avatar.png" alt = "renees avatar"/>
+          <div class = "catagorySelector">
+            <input type="radio" id="Renee" name="avatar" value="renee" checked>
+            <label for="Renee">Renee</label>
+          </div>
         </div>
-        <div class = "catagorySelector">
-          <input type="radio" id="chris" name="avatar" value="chris">
-          <label for="chris">Chris</label>
+        
+        <div class = "catagorySelectorHolder">
+          <img src = "./assets/marisha.png" alt = "marishas avatar"/>
+          <div class = "catagorySelector">
+            <input type="radio" id="marisha" name="avatar" value="marisha">
+            <label for="marisha">Marisha</label>
+          </div>
         </div>
-        <div class = "catagorySelector">
-          <input type="radio" id="sapana" name="avatar" value="sapana">
-          <label for="sapana">Sapana</label>
+
+        <div class = "catagorySelectorHolder">
+          <img src = "./assets/chris-avatar.png" alt = "chris avatar"/>
+          <div class = "catagorySelector">
+            <input type="radio" id="chris" name="avatar" value="chris">
+            <label for="chris">Chris</label>
+          </div>
+        </div>
+
+        <div class = "catagorySelectorHolder">
+          <img src = "./assets/sapana-avatar.png" alt = "sapanas avatar"/>
+          <div class = "catagorySelector">
+            <input type="radio" id="sapana" name="avatar" value="sapana">
+            <label for="sapana">Sapana</label>
+          </div>
         </div>
       </section>
-      <section id = "avatarImages">
-        <img src = "./assets/Renee-avatar.png" alt = "renees avatar"/>
-        <img src = "./assets/marisha.png" alt = "marishas avatar"/>
-        <img src = "./assets/chris-avatar.png" alt = "chris avatar"/>
-        <img src = "./assets/sapana-avatar.png" alt = "sapanas avatar"/>
-      </section>
+
     </div>
+
+    <!-- holds username -->
     <div id="username">
       <div>
         <label for="usernameValue">Enter Username:</label>
         <input type="text" id="usernameValue">
       </div>
     </div>
+
+    <!-- holds submit button -->
     <div id="submit">
       <input type="submit" value="Start Crushing Knowledge">
     </div>

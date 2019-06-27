@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 header {
-  min-height: 100px;
+  height: 80px;
   background-color: #44A8FE;
   overflow: hidden;
 }
@@ -15,7 +15,7 @@ nav a li {
   text-align: center;
   height: 51px;
   width: 114px;
-  margin: 30px 10px;
+  margin: 15px 10px;
   background-image: url("../assets/nav-bar-buttons.png");
 }
 
@@ -27,7 +27,7 @@ nav a:first-child li {
 nav a {
   text-decoration: none;
   color: white;
-  /* font-family: 'VT323', monospace; */
+  font-family: 'VT323', monospace;
   font-size: 1.2em;
 }
 body {
@@ -35,39 +35,42 @@ body {
 }
 main {
   height: 500px;
-  width: 900px;
+  width: 1340px;
   margin: 0 auto;
 }
 .div-image{
   margin-top: 50px;
+  margin-bottom: 15px;
 }
-#one {
-  width: 25%;
+.div-image img {
+  margin: auto;
+  display: block;
+}
+.character {
+  width: 320px;
   float: left;
-}
-#two {
-  width: 25%;
-  float: left;
-}
-#three {
-  width: 25%;
-  float: left;
-}
-#three > p > span {
-  font-style: italic;
+  font-family: 'VT323', monospace; 
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
-#four {
-  width: 25%;
-  float: left;
-}
-.circle {
-  border-radius: 100%;
-}
-.div-image {
-  margin-bottom: 50px;
-}
 footer img{
   width: 100%;
 
+}
+.character:nth-child(3) span {
+  font-style: italic;
+}
+h2 {
+  font-size: 2.5em;
+  text-align: center;
+  font-weight: bolder;
+  color: white;
+}
+p {
+  font-size: 2em;
+  color: white;
+}
+.character:last-child {
+  margin-right: 0px;
 }
