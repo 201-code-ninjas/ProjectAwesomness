@@ -21,9 +21,9 @@ function music(src) {
 }
 
 //
-easyMusic = new music ('../assets/DOOM (2016) OST - Rip & Tear.mp3');
-mediumMusic = new music('../assets/DOOM (2016) OST - Flesh & Metal (w build up).mp3');
-hardMusic = new music('../assets/DOOM (2016) OST - Rip & Tear.mp3');
+easyMusic = new music ('../assets/8_Bit_Menu_David_Renda_FesliyanStudios.com.mp3');
+mediumMusic = new music('../assets/Old_Video_Game_Music_1David_Fesliyan.mp3');
+hardMusic = new music('../assets/Doom 3 Music- Main Theme.mp3');
 
 //To add background music to the game, add new music object when the game word shows up
 function startMusic() {
