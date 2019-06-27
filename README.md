@@ -29,4 +29,4 @@ Our team communication plan can be found at [./userStories/communication-plan.md
 Our team conflict plan can be found at [./userStories/conflictPlan.md](https://github.com/201-code-ninjas/ProjectAwesomness/blob/readmeUpdate/userStories/conflictPlan.md)
 
 ## Dependencies
-Knowledge Crusher is a standalone game. Visit the deployed url at https://201-code-ninjas.github.io/ProjectAwesomness/ or feel free clone or fork our repository to code for yourself and make our game even better!
+Word Crusher is a standalone game. Visit the deployed url at https://201-code-ninjas.github.io/ProjectAwesomness/ or feel free clone or fork our repository to code for yourself and make our game even better!
