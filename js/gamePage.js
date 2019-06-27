@@ -81,30 +81,23 @@ function avatarSelection () {
 
 
 showWordType();
+startMusic();
 
-//Eventlistner for text form
-// var userInput = document.getElementById('gamePageForm');
-function handleUserSubmission(event) {
-  event.preventDefault();
-  wordsTyped++;
-  checkUserAnswer();
-  startMusic();
-  showWordType();
-}
+
 
 function handleKeyPress(){
   var typedAnswer = document.getElementById('userEntry').value;
   var displayedWord = document.getElementById('wordToType').textContent;
 
+  // answer can be greater than or equal to the word they're trying to type
+  // because if you type very quickly, you can skip the event
   if (typedAnswer.length >= displayedWord.length){
     wordsTyped++;
     checkUserAnswer();
-    startMusic();
     showWordType();
   }
 }
 
-document.addEventListener('submit', handleUserSubmission);
 document.addEventListener('keyup', handleKeyPress);
 
 //move hero forward
@@ -212,6 +205,7 @@ function draw() {
 
   // draw the wall, hero, and win wall
   tickCounter++;
+  //lower number is faster, higher number slower
   if (tickCounter === 15 && wallFrames < 4){
     wallCropX += 100;
     wallFrames++;
@@ -222,6 +216,8 @@ function draw() {
     wallFrames = 0;
     tickCounter = 0;
   }
+
+  //(image to draw, crop starting x-position, crop starting y-position, crop-width, crop-height, x-position of where to place it, y-position of where to place it, actual width to display, actual height to display)
   ctx.drawImage(wallImage, wallCropX, 0, 100, 300, 0, groundLevel - 300, 100, 300 );
   
 
