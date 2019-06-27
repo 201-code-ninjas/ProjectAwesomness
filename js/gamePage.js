@@ -98,6 +98,11 @@ function handleKeyPress(){
   }
 }
 
+document.addEventListener ('submit', preventDefaultOnEnter);
+function preventDefaultOnEnter () {
+  event.preventDefault();
+}
+
 document.addEventListener('keyup', handleKeyPress);
 
 //move hero forward
@@ -115,7 +120,13 @@ function checkUserAnswer() {
   var answer = document.getElementById('userEntry').value.trim();
   if (answer === document.getElementById('wordToType').textContent) {
     moveHeroForward();
-    currentUser.score += 5;
+    if (currentUser.difficulty === 'easy') {
+      currentUser.score += 5;
+    } else if (currentUser.difficulty === 'medium') {
+      currentUser.score += 10;
+    } else if (currentUser.difficulty === 'hard') {
+      currentUser.score += 15;
+    }
   } else {
     moveHeroBackward();
   }
@@ -219,7 +230,6 @@ function draw() {
 
   //(image to draw, crop starting x-position, crop starting y-position, crop-width, crop-height, x-position of where to place it, y-position of where to place it, actual width to display, actual height to display)
   ctx.drawImage(wallImage, wallCropX, 0, 100, 300, 0, groundLevel - 300, 100, 300 );
-  
 
 
   ctx.drawImage(heroImage, heroXPosition, groundLevel - 110, 130, 130);
@@ -254,7 +264,7 @@ function draw() {
   if (heroXPosition <= 15) {
     // save to local storage
     // redirect to leaderboard
-    alert('You Suck, Try again');
+    alert('Congratulations, you met the WALL OF DOOM.  You are now dead.');
     saveToLocalStorage('users', users);
     window.location.href = '../pages/leaderBoard.html';
     return;
@@ -266,7 +276,7 @@ function draw() {
     // if finished hard, redirect to leaderboard
     //get the bonus score
     scoreMultiplier();
-    alert('You\'re awesome, Try again');
+    alert('You have made it to the gates of Valhalla, where all is shiney and chrome');
 
     if (currentUser.difficulty === 'easy') {
       currentUser.difficulty = 'medium';
