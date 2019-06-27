@@ -92,11 +92,11 @@ function handleUserSubmission(event) {
   showWordType();
 }
 
-function handleKeyPress(event){
+function handleKeyPress(){
   var typedAnswer = document.getElementById('userEntry').value;
   var displayedWord = document.getElementById('wordToType').textContent;
 
-  if (typedAnswer.length > displayedWord.length){
+  if (typedAnswer.length >= displayedWord.length){
     wordsTyped++;
     checkUserAnswer();
     startMusic();
@@ -240,9 +240,19 @@ function draw() {
   ctx.fillText(currentUser.score, canvasWidth - 55, 60);
 
   // move hero and ground backwards at the same speed
-  heroXPosition -= .5;
-  groundXPosition -= .5;
-  groundEndXPosition -= .5;
+  if (currentUser.difficulty === 'easy'){
+    heroXPosition -= .5;
+    groundXPosition -= .5;
+    groundEndXPosition -= .5;
+  } else if (currentUser.difficulty === 'medium'){
+    heroXPosition -= .6;
+    groundXPosition -= .6;
+    groundEndXPosition -= .6;
+  } else if (currentUser.difficulty === 'hard'){
+    heroXPosition -= .75;
+    groundXPosition -= .75;
+    groundEndXPosition -= .75;
+  }
 
   //if the character dies
   if (heroXPosition <= 15) {
