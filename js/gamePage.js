@@ -271,13 +271,17 @@ function draw() {
 
     //if the character wins
   } else if (heroXPosition >= canvasWidth - 100) {
+    if (currentUser.difficulty === 'easy' || currentUser.difficulty === 'medium') {
+      scoreMultiplier();
+      alert('Onward to glory!!!');
+    } else{
+      scoreMultiplier();
+      alert('You have made it to the gates of Valhalla, where all is shiney and chrome');
+    }
     // advance to next level
     // save to local storage
     // if finished hard, redirect to leaderboard
     //get the bonus score
-    scoreMultiplier();
-    alert('You have made it to the gates of Valhalla, where all is shiney and chrome');
-
     if (currentUser.difficulty === 'easy') {
       currentUser.difficulty = 'medium';
       saveToLocalStorage('users', users);
