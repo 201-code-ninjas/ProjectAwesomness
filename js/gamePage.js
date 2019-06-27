@@ -7,7 +7,7 @@ var users = getFromLocalStorage('users');
 var currentUser = users[users.length - 1];
 
 var groundLevelImg = new Image();
-var wallOfDeathGif = new Image();
+var wallImage = new Image();
 var heroImage = new Image();
 var wallOfWinImg = new Image();
 var cloud1 = new Image();
@@ -28,6 +28,9 @@ var numberOfGround = 1;
 var groundEndXPosition = canvasWidth;
 var lightningTimer = 0;
 var lightningPosition = 0;
+var wallCropX = 0;
+var wallFrames = 0;
+var tickCounter = 0;
 
 var bonusGoal = [[5, 500], [10, 250], [20, 100]];
 var wordsTyped = 0;
@@ -89,11 +92,11 @@ function handleUserSubmission(event) {
   showWordType();
 }
 
-function handleKeyPress(event){
+function handleKeyPress(){
   var typedAnswer = document.getElementById('userEntry').value;
   var displayedWord = document.getElementById('wordToType').textContent;
 
-  if (typedAnswer.length > displayedWord.length){
+  if (typedAnswer.length >= displayedWord.length){
     wordsTyped++;
     checkUserAnswer();
     startMusic();
@@ -128,7 +131,7 @@ function checkUserAnswer() {
 
 function init() {
   groundLevelImg.src = '../assets/scenery-ground.png';
-  wallOfDeathGif.src = '../assets/wallOfDeath.png';
+  wallImage.src='../assets/wallOfDeath-Animation.png';
   heroImage.src = avatarSelection();
   wallOfWinImg.src = '../assets/wallOfWin.png';
   cloud1.src = '../assets/cloud1.png';
@@ -208,7 +211,21 @@ function draw() {
   }
 
   // draw the wall, hero, and win wall
-  ctx.drawImage(wallOfDeathGif, 0, groundLevel - 300);
+  tickCounter++;
+  if (tickCounter === 15 && wallFrames < 4){
+    wallCropX += 100;
+    wallFrames++;
+
+    tickCounter = 0;
+  } else if ( tickCounter === 15 && wallFrames === 4){
+    wallCropX = 0;
+    wallFrames = 0;
+    tickCounter = 0;
+  }
+  ctx.drawImage(wallImage, wallCropX, 0, 100, 300, 0, groundLevel - 300, 100, 300 );
+  
+
+
   ctx.drawImage(heroImage, heroXPosition, groundLevel - 110, 130, 130);
   ctx.drawImage(wallOfWinImg, canvasWidth - 33, groundLevel - 247);
 
@@ -223,9 +240,19 @@ function draw() {
   ctx.fillText(currentUser.score, canvasWidth - 55, 60);
 
   // move hero and ground backwards at the same speed
-  heroXPosition -= .5;
-  groundXPosition -= .5;
-  groundEndXPosition -= .5;
+  if (currentUser.difficulty === 'easy'){
+    heroXPosition -= .5;
+    groundXPosition -= .5;
+    groundEndXPosition -= .5;
+  } else if (currentUser.difficulty === 'medium'){
+    heroXPosition -= .6;
+    groundXPosition -= .6;
+    groundEndXPosition -= .6;
+  } else if (currentUser.difficulty === 'hard'){
+    heroXPosition -= .75;
+    groundXPosition -= .75;
+    groundEndXPosition -= .75;
+  }
 
   //if the character dies
   if (heroXPosition <= 15) {
