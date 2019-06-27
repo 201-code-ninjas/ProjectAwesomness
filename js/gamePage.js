@@ -49,19 +49,18 @@ function scoreMultiplier() {
 function showWordType() {
   var challangeWord = document.getElementById('wordToType');
   if (currentUser.difficulty === 'easy') {
-    var easyWord = pickFromEasyWordList();
+    var easyWord = pickWord('easy');
     challangeWord.textContent = easyWord;
   }
   if (currentUser.difficulty === 'medium') {
-    var mediumWord = pickFromMediumWordList();
+    var mediumWord = pickWord('medium');
     challangeWord.textContent = mediumWord;
   }
   if (currentUser.difficulty === 'hard') {
-    var hardWord = pickFromHardWordList();
+    var hardWord = pickWord('hard');
     challangeWord.textContent = hardWord;
   }
 }
-
 
 //Generate user avatar from local storage
 function avatarSelection () {
