@@ -7,9 +7,9 @@
 body {
   background-color: #44A8FE;
 }
-/* may change with global header */
+
 header {
-  min-height: 100px;
+  height: 80px;
   overflow: hidden;
 }
 
@@ -19,7 +19,7 @@ nav a li {
   text-align: center;
   height: 51px;
   width: 114px;
-  margin: 30px 10px;
+  margin: 15px 10px;
   background-image: url("../assets/nav-bar-buttons.png");
 }
 
@@ -42,6 +42,7 @@ body {
   text-align: center;
   font-family: 'VT323', monospace;
 }
+
 h1 {
   font-size: 30px;
   color: white;
@@ -56,9 +57,9 @@ h1 {
 }
 
 form {
-  margin-top: 40px;
+  margin-top: 20px;
   min-height: 350px;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
   color:white;
   font-size: 25px;
   font-weight: bold;
@@ -66,51 +67,33 @@ form {
 
 #userSelectionOptions {
   width: 100%;
-  overflow: auto;
-  padding-top: 20px;
+  overflow: hidden;
 }
 
-#catagorySelectorHeader > div{
+.sectionHeader {
+  margin: auto;
   overflow: auto;
   height: 50px;
   width: 300px;
   font-size: 1.75em;
-  color: black;
   background-image: url("../assets/Username-box.png");
   background-repeat: no-repeat;
   background-size: 300px;
-  margin-bottom: 15px;
-}
-
-#difficultyHeader {
-  height: 50px;
-  width: 100px;
-  float:left;
-  margin-left: 7%;
-}
-
-#avatarHeader {
-  float: left;
-  margin-left: 41%;
 }
 
 #difficulty {
   text-align: center;
   float: left;
+  overflow: hidden;
   margin-left: 10%;
-  width: 234px;
+  width: 35%;
   margin-right: 10px;
-  height: 25px;
 }
 
-#difficulty > div {
-  margin-bottom: 13px;
-  margin-right: 15px;
-}
-
-#difficulty > div:hover, #avatarSelection > div:hover {
+#difficulty > div:not(:first-child):hover, 
+#avatarSelection > div > div:hover, #submit>:hover {
   background-image: url("../assets/SelectedBoxDarker.png");
-  color: grey;
+  color: lightgray;
 }
 
 #userSelectionOptions input {
@@ -120,10 +103,10 @@ form {
 #userSelectionOptions input:checked + label {
   background-image: url("../assets/SelectedBoxDarker.png");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: 225px;
   background-position: center;
   height: 33px;
-  color: grey;
+  color: lightgray;
 }
 
 #userSelectionOptions > section > div > label {
@@ -131,15 +114,17 @@ form {
   display:block;
 }
 
-#avatarSelection {
-  text-align: center;
-  float: left;
+#userSelectionOptions > section > div > div > label {
   width: 225px;
-  margin-left: 46%;
+  display:block;
 }
 
-#avatarSelection > div {
-  margin-bottom: 26px;
+#avatarSelection {
+  text-align: center;
+  float: right;
+  width: 35%;
+  margin-right: 10%;
+  overflow: hidden;
 }
 
 .catagorySelector {
@@ -147,18 +132,32 @@ form {
   background-image: url("../assets/Username-box.png");
   background-repeat: no-repeat;
   background-size: auto;
-}
-
-#avatarImages {
-  float:left;
-  margin-top: -21px;
-}
-
-#avatarImages> img {
-  width: 60px;
-  height: 60px;
-  float: none;
+  width: 218px;
   display: block;
+  margin: 20px auto;
+}
+
+#avatarSelection .catagorySelector {
+  margin: 10px auto;
+}
+
+.catagorySelectorHolder {
+  overflow: hidden;
+  width: 340px;
+  margin: auto;
+}
+
+.catagorySelectorHolder:nth-child(2) {
+  overflow: hidden;
+  width: 340px;
+  margin: 10px auto 0px auto;
+}
+
+.catagorySelectorHolder > img {
+  width: 50px;
+  height: 50px;
+  margin: 0px;
+  float: right;
 }
 
 #username {
@@ -186,7 +185,22 @@ form > #username > label {
 }
 
 #submit {
-  margin-top: 30px;
+  width: 350px;
+  margin: 30px auto 0px auto;
+}
+
+#submit > input {
+  width: 350px;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  background-image: url(../assets/Username-box.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  font-family: 'VT323', monospace;
+  color: white;
+  font-size: 1.25em;
 }
 
 /* ------------------------------Footer-------------------------------- */
