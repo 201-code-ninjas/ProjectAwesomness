@@ -1,3 +1,35 @@
+/* Pixel font */
+@import url('https://fonts.googleapis.com/css?family=VT323&display=swap');
+
+header {
+  min-height: 100px;
+  background-color: #44A8FE;
+  overflow: hidden;
+}
+
+nav a li {
+  float: right;
+  line-height: 51px;
+  text-align: center;
+  height: 51px;
+  width: 114px;
+  margin: 30px 10px;
+  color: white;
+  background-image: url("../assets/nav-bar-buttons.png");
+}
+
+nav a:first-child li {
+  float: left;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-family: 'VT323', monospace;
+  font-size: 1.2em;
+}
+
 body{
   width: 100%;
   height: 100%;
@@ -18,6 +50,30 @@ body{
   position: relative;
   top: 50px;
   height: 0px;
+  font-family: 'VT323', monospace;
+}
+
+#gamePageForm > div {
+  background-color: white;
+  border: 3px solid #ff0000;
+  padding: 10px;
+}
+
+#gamePageForm > div > input {
+  font-size: 30px;
+  width: 95%;
+  margin: auto;
+  font-family: 'VT323', monospace;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+#gamePageForm > div > h1 {
+  padding-top: 10px;
+  font-size: 30px;
+  width: 95%;
+  margin: auto;
+  letter-spacing: 2px;
 }
 
 

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="./css/reset.css" rel="stylesheet">
   <link href="./css/style.css" type="text/css" rel="stylesheet" />
-  <title>Knowledge Crusher</title>
+  <title>Word Crusher</title>
 </head>
 
 <body>
@@ -26,26 +26,61 @@
       </ul>
     </nav>
   </header>
-  <h1>KNOWLEDGE CRUSHER</h1>
+  <h1>WORD CRUSHER</h1>
   <form>
-    <section id="difficulty">
-      <h2>Difficulty Level</h2>
-      <div>
-        <input type="radio" id="easy" name="difficultyList" value="easy">
-        <label for="easy">Easy</label>
+    <section id = "catagorySelectorHeader">
+      <div id = "difficultyHeader">
+        <h2>Difficulty Level</h2>
       </div>
-      <div>
-        <input type="radio" id="medium" name="difficultyList" value="medium" checked>
-        <label for="medium">Medium</label>
-      </div>
-      <div>
-        <input type="radio" id="hard" name="difficultyList" value="hard">
-        <label for="hard">Hard</label>
+      <div id = "avatarHeader">
+        <h2>Select Avatar</h2>
       </div>
     </section>
+    <div id = "userSelectionOptions">
+      <section id="difficulty">
+        <div class = "catagorySelector">
+          <input type="radio" id="easy" name="difficultyList" value="easy">
+          <label for="easy">Easy</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="medium" name="difficultyList" value="medium" checked>
+          <label for="medium">Medium</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="hard" name="difficultyList" value="hard">
+          <label for="hard">Hard</label>
+        </div>
+      </section>
+      <section id = "avatarSelection">
+        <div class = "catagorySelector">
+          <input type="radio" id="Renee" name="avatar" value="renee" checked>
+          <label for="Renee">Renee</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="marisha" name="avatar" value="marisha">
+          <label for="marisha">Marisha</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="chris" name="avatar" value="chris">
+          <label for="chris">Chris</label>
+        </div>
+        <div class = "catagorySelector">
+          <input type="radio" id="sapana" name="avatar" value="sapana">
+          <label for="sapana">Sapana</label>
+        </div>
+      </section>
+      <section id = "avatarImages">
+        <img src = "./assets/Renee-avatar.png" alt = "renees avatar"/>
+        <img src = "./assets/marisha.png" alt = "marishas avatar"/>
+        <img src = "./assets/chris-avatar.png" alt = "chris avatar"/>
+        <img src = "./assets/sapana-avatar.png" alt = "sapanas avatar"/>
+      </section>
+    </div>
     <div id="username">
-      <label for="usernameValue">Enter your Character Name:</label>
-      <input type="text" id="usernameValue">
+      <div>
+        <label for="usernameValue">Enter Username:</label>
+        <input type="text" id="usernameValue">
+      </div>
     </div>
     <div id="submit">
       <input type="submit" value="Start Crushing Knowledge">
