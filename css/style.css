@@ -49,8 +49,6 @@ h1 {
   height: 75px;
   margin: auto;
   line-height: 75px;
-  /* border: 1px solid black; */
-  /* background-color: cadetblue; */
   background-image: url("../assets/Username-box.png");
   background-repeat: no-repeat;
   background-size: 400px;
@@ -69,6 +67,31 @@ form {
 #userSelectionOptions {
   width: 100%;
   overflow: auto;
+  padding-top: 20px;
+}
+
+#catagorySelectorHeader > div{
+  overflow: auto;
+  height: 50px;
+  width: 300px;
+  font-size: 1.75em;
+  color: black;
+  background-image: url("../assets/Username-box.png");
+  background-repeat: no-repeat;
+  background-size: 300px;
+  margin-bottom: 15px;
+}
+
+#difficultyHeader {
+  height: 50px;
+  width: 100px;
+  float:left;
+  margin-left: 7%;
+}
+
+#avatarHeader {
+  float: left;
+  margin-left: 41%;
 }
 
 #difficulty {
@@ -128,7 +151,7 @@ form {
 
 #avatarImages {
   float:left;
-  margin-top: 16px;
+  margin-top: -21px;
 }
 
 #avatarImages> img {
