@@ -20,5 +20,13 @@ A user can submit their typed answer via a space at the end of the word, or the 
 
 Word Crusher utilizes local storage for the high score table, so please use the same computer if you would like to compete with your friends.
 
+## User Stories
+Find our user stories at [./userStories/allUserStories.md](https://github.com/201-code-ninjas/ProjectAwesomness/blob/readmeUpdate/userStories/allUserStories.md)
+
+## Team Plans
+Our team communication plan can be found at [./userStories/communication-plan.md](https://github.com/201-code-ninjas/ProjectAwesomness/blob/readmeUpdate/userStories/communication-plan.md)
+
+Our team conflict plan can be found at [./userStories/conflictPlan.md](https://github.com/201-code-ninjas/ProjectAwesomness/blob/readmeUpdate/userStories/conflictPlan.md)
+
 ## Dependencies
 Knowledge Crusher is a standalone game. Visit the deployed url at https://201-code-ninjas.github.io/ProjectAwesomness/ or feel free clone or fork our repository to code for yourself and make our game even better!
