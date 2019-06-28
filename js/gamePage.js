@@ -227,7 +227,7 @@ function draw() {
     tickCounter = 0;
   }
 
-  //(image to draw, crop starting x-position, crop starting y-position, crop-width, crop-height, x-position of where to place it, y-position of where to place it, actual width to display, actual height to display)
+  /*(image to draw, crop starting x-position, crop starting y-position, crop-width, crop-height, x-position of where to place it, y-position of where to place it, actual width to display, actual height to display) */
   ctx.drawImage(wallImage, wallCropX, 0, 100, 300, 0, groundLevel - 300, 100, 300 );
 
 
