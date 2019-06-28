@@ -33,5 +33,7 @@ Word Crusher is a standalone game. Visit the deployed url at https://201-code-ni
 
 ## Resources
 Pixel avatars created with [www.avatarsinpixels.com](http://www.avatarsinpixels.com/)
+
 Level music from https://www.fesliyanstudios.com/royalty-free-music
+
 Wall of Doom Gif based on this tutorial: http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/
