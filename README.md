@@ -30,3 +30,6 @@ Our team conflict plan can be found at [./userStories/conflictPlan.md](https://g
 
 ## Dependencies
 Word Crusher is a standalone game. Visit the deployed url at https://201-code-ninjas.github.io/ProjectAwesomness/ or feel free clone or fork our repository to code for yourself and make our game even better!
+
+## Resources
+Pixel avatars created with [www.avatarsinpixels.com](http://www.avatarsinpixels.com/)
