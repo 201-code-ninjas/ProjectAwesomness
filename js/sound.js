@@ -21,14 +21,15 @@ function music(src) {
 }
 
 //
-easyMusic = new music ('../assets/8_Bit_Menu_David_Renda_FesliyanStudios.com.mp3');
-mediumMusic = new music('../assets/Old_Video_Game_Music_1David_Fesliyan.mp3');
+easyMusic = new music ('../assets/easy-difficulty-song.mp3');
+mediumMusic = new music('../assets/medium-difficulty-song.mp3');
 hardMusic = new music('../assets/Doom 3 Music- Main Theme.mp3');
 
 //To add background music to the game, add new music object when the game word shows up
 function startMusic() {
   if(currentUser.difficulty === 'easy') {
     easyMusic.play();
+
   }
   if(currentUser.difficulty === 'medium') {
     mediumMusic.play();
@@ -36,6 +37,7 @@ function startMusic() {
   if(currentUser.difficulty === 'hard') {
     hardMusic.play();
   }
+
 }
 
 
