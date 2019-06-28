@@ -1,5 +1,6 @@
 'use strict';
 
+// eslint-disable-next-line no-undef
 var users = getFromLocalStorage('users');
 var currentUser = users[users.length - 1];
 var leaderBoard = document.getElementById('leader-board');
