@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Word Crusher Game Page</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/gamePage.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Word Crusher Game Page</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/gamePage.css">
-</head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <a href="../index.html"><li>Home</li></a>
+          <a href="../pages/leaderboard.html"><li>Leaderboard</li></a>
+          <a href="../pages/aboutUs.html"><li>About Us</li></a>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form id="gamePageForm" autocomplete="off">
+        <div>
+          <input type="text" id="userEntry" autofocus />
+          <h1 id="wordToType">Hello World</h1>
+        </div>
+      </form>
 
-<body>
-  <header>
-    <nav>
-      <ul>
-        <a href="../index.html"><li>Home</li></a>
-        <a href="../pages/leaderboard.html"><li>Leaderboard</li></a>
-        <a href="../pages/aboutUs.html"><li>About Us</li></a>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <form id="gamePageForm" autocomplete="off">
-      <div>
-        <input type="text" id="userEntry" autofocus>
-        <h1 id="wordToType">Hello World</h1>
-      </div>
-    </form>
+      <canvas id="gamePageCanvas" width="960px" height="500px"></canvas>
+      <p>
+        Type the word displayed as fast as you can, words will submit
+        automatically no need to hit enter. Keep up to reach the prize or lag
+        behind and meet your fate with the WALL OF DOOM!
+      </p>
+    </main>
 
-    <canvas id="gamePageCanvas" width="960px" height="500px" ></canvas>
-    <p>Type the word displayed as fast as you can, words will submit automatically no need to hit enter.  Keep up to reach the prize or lag behind and meet your fate with the WALL OF DOOM!</p>
-  </main>
-
-  <script src="../js/localStorage.js"></script>
-  <script src="../js/wordLists.js"></script>
-  <script src="../js/sound.js"></script>
-  <script src="../js/randomWord.js"></script>
-  <script src="../js/gamePage.js"></script>
-</body>
-
+    <script src="../js/localStorage.js"></script>
+    <script src="../js/wordLists.js"></script>
+    <script src="../js/sound.js"></script>
+    <script src="../js/randomWord.js"></script>
+    <script src="../js/gamePage.js"></script>
+  </body>
 </html>
